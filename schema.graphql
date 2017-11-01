@@ -1,0 +1,37 @@
+/**
+ * API Schema定义
+ */
+module.exports = `
+  type User {
+    id: Int!
+    name: String
+  }
+
+  type Query {
+    user(id: Int!): User
+    allUser: [User]
+  }
+
+  type Mutation {
+    createUser(
+      name: String
+    ): User
+    deleteUser(
+      id: Int!
+    ): User
+    updateUser(
+      id: Int!,
+      name: String
+    ): User
+  }
+
+  type Subscription {
+    userChanged: User
+  }
+
+  schema {
+    query: Query
+    mutation: Mutation
+    subscription: Subscription
+  }
+`;
